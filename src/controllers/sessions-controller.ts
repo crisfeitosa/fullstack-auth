@@ -8,7 +8,7 @@ class SessionsController {
     const { username, password } = request.body;
 
     const fakeUser = {
-      id: 1,
+      id: "1",
       username: "cristiano",
       password: "123456"
     };
@@ -21,7 +21,7 @@ class SessionsController {
 
     const token = sign({}, secret, {
       expiresIn,
-      subject: String(fakeUser.id)
+      subject: fakeUser.id,
     })
 
     return response.json({ token })
